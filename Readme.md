@@ -57,7 +57,7 @@ Note the lanes are referred to as Lane 0, 1, and 2 from left to right, respectiv
 * Make a left lane change. This is possible when ego car is on Lane 1 and Lane 2. 
 * Make a right lane change. This is possible when ego car is on Lane 0 and Lane 1.
 
-#### For behavioral planning, I follow simple human driving intuitions. That is, the action to be taken depends mainly on the traffic in the ego and adjacent lanes. Specifically, I come up with a "greedy" algorithm that uses the distances between the closest cars (both ahead and behind) in each lane to the ego car as decision criteria, as shown in the following figure.
+For behavioral planning, I follow simple human driving intuitions. That is, the action to be taken depends mainly on the traffic in the ego and adjacent lanes. Specifically, I come up with a "greedy" algorithm that uses the distances between the closest cars (both ahead and behind) in each lane to the ego car as decision criteria, as shown in the following figure.
 ![img](images/path_planning_left_turn.jpg)
 
 For example,  if there is traffic ahead (in the same lane), we can slow down to follow the lead vehicle (by matching the speed of the lead car). If the distance between ego and front cars (denoted as D3) is too small, we can consider switching lane. In general, we switch to a lane with less traffic. For example, in the above image Lane 0 has more room than right Lane 2, that is D1 > D2. In addition, if D4 is large enough (there is enough distance between ego car and the car behind in L0), we can switch the lane.
